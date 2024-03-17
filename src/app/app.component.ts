@@ -1,0 +1,13 @@
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { WeatherCardComponent } from './weather-card/weather-card.component';
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, WeatherCardComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+})
+export class AppComponent {
+  title = 'denemedeneme';
+}

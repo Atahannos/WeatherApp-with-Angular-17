@@ -1,0 +1,43 @@
+<div class="flex items-center justify-center p-20">
+  <h1>Weather App</h1>
+</div>
+<div class="flex justify-center">
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <figure>
+      <img
+        *ngIf="temperature < 15"
+        src="/assets/weatherImages/sunny.png"
+        alt="Gunesli"
+      />
+      <img
+        *ngIf="temperature >= 15"
+        src="/assets/weatherImages/cloudy.jpg"
+        alt="Bulutlu"
+      />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">Aradığınız Şehri Giriniz</h2>
+      <input
+        type="text"
+        placeholder=""
+        class="input input-bordered w-full max-w-xs"
+        #cityInput
+      />
+      <div class="card-actions justify-end">
+        <button
+          (click)="getCityCoordinates(cityInput.value)"
+          class="btn btn-primary"
+        >
+          Bul
+        </button>
+      </div>
+      <div>
+        <p>Sıcaklık:{{ temperature }}</p>
+        <p>Görüş Sınırlılığı:{{ visibility }}</p>
+        <p>Rüzgar Hızı:{{ windSpeed }}</p>
+        <p>Yağmur İhtimali:{{ rainIntensity }}</p>
+        <p>Bulur Oranı:{{ cloudCover }}</p>
+      </div>
+    </div>
+  </div>
+</div>
