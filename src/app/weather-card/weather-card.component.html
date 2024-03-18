@@ -4,16 +4,7 @@
 <div class="flex justify-center">
   <div class="card w-96 bg-base-100 shadow-xl">
     <figure>
-      <img
-        *ngIf="temperature < 15"
-        src="/assets/weatherImages/sunny.png"
-        alt="Gunesli"
-      />
-      <img
-        *ngIf="temperature >= 15"
-        src="/assets/weatherImages/cloudy.jpg"
-        alt="Bulutlu"
-      />
+      <img src="/assets/weatherImages/Base.jpg" alt="..." />
     </figure>
     <div class="card-body">
       <h2 class="card-title">Aradığınız Şehri Giriniz</h2>
@@ -31,7 +22,25 @@
           Bul
         </button>
       </div>
-      <div>
+      <div class="pt-5">
+        <div>
+          <h1>{{ cityInput.value }}</h1>
+          <img
+            *ngIf="temperature < 15 && rainIntensity < 30"
+            src="/assets/weatherImages/cloudy.jpg"
+            alt="Kapalı"
+          />
+          <img
+            *ngIf="temperature >= 15"
+            src="/assets/weatherImages/sunny.png"
+            alt="Bulutlu"
+          />
+          <img
+            *ngIf="temperature < 15 && rainIntensity > 30"
+            src="/assets/weatherImages/rainy.jpg"
+            alt="Gunesli"
+          />
+        </div>
         <p>Sıcaklık:{{ temperature }}</p>
         <p>Görüş Sınırlılığı:{{ visibility }}</p>
         <p>Rüzgar Hızı:{{ windSpeed }}</p>
